@@ -1,5 +1,6 @@
 // ⚡ script.js — ang "utak" ng pahina.
 // Kinukuha nito ang tunay na git history at ginagawang buhay ang pahina.
+// (Bersyon na may "burst" feature — idinagdag mula sa branch na feature/confetti)
 
 const timeline = document.getElementById('timeline');
 const commitBtn = document.getElementById('commitBtn');
@@ -24,47 +25,7 @@ function renderLog(entries, offline) {
     note.textContent = '⚠️ Hindi maabot ang server — ipinapakita ang nakaimbak na bersyon.';
     timeline.appendChild(note);
   }
-  entries.forEach((entry) => {
-    const div = document.createElement('div');
-    div.className = 'commit' + (entry.simulated ? ' simulated' : '');
-
-    const body = document.createElement('div');
-    body.className = 'commit-body';
-
-    const top = document.createElement('div');
-    top.className = 'commit-top';
-
-    const hash = document.createElement('span');
-    hash.className = 'hash';
-    hash.textContent = entry.hash;
-
-    const date = document.createElement('span');
-    date.className = 'date';
-    date.textContent = entry.date;
-
-    top.appendChild(hash);
-    if (entry.simulated) {
-      const badge = document.createElement('span');
-      badge.className = 'sim-badge';
-      badge.textContent = '🎭 simulasyon';
-      top.appendChild(badge);
-    }
-    top.appendChild(date);
-
-    const msg = document.createElement('div');
-    msg.className = 'msg';
-    msg.textContent = entry.message;
-
-    body.appendChild(top);
-    body.appendChild(msg);
-
-    const dot = document.createElement('div');
-    dot.className = 'dot';
-
-    div.appendChild(dot);
-    div.appendChild(body);
-    timeline.appendChild(div);
-  });
+  entries.forEach((entry) => timeline.appendChild(buildCommit(entry)));
 }
 
 // Kinukuha ang tunay na git log mula sa server
@@ -76,6 +37,24 @@ async function loadLog() {
     renderLog(data, false);
   } catch (err) {
     renderLog(FALLBACK, true);
+  }
+}
+
+// 🎉 Burst: lumilipad na emoji
+// (Ang feature na ito ay ginawa sa ibang branch tapos na-merge sa main!)
+function burst(x, y) {
+  const emojis = ['🎉', '✨', '💚', '🚀', '⭐', '🎊'];
+  for (let i = 0; i < 14; i++) {
+    const s = document.createElement('span');
+    s.className = 'burst-emoji';
+    s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    s.style.left = x + (Math.random() - 0.5) * 80 + 'px';
+    s.style.top = y + 'px';
+    s.style.setProperty('--dx', (Math.random() - 0.5) * 120 + 'px');
+    s.style.setProperty('--dy', -(60 + Math.random() * 90) + 'px');
+    s.style.animationDuration = 0.8 + Math.random() * 0.6 + 's';
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 1600);
   }
 }
 
@@ -101,6 +80,7 @@ commitBtn.addEventListener('click', (event) => {
     simulated: true,
   };
   timeline.insertBefore(buildCommit(entry), timeline.firstChild);
+  burst(event.clientX, event.clientY);
 
   fakeCount += 1;
   hint.textContent =
