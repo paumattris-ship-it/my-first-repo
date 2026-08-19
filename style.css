@@ -1,0 +1,163 @@
+/* 🎨 style.css — ang disenyo ng "Ang Aking Unang Repo" */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0b1020;
+  --card: rgba(255, 255, 255, 0.04);
+  --line: rgba(255, 255, 255, 0.1);
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --pink: #f472b6;
+  --violet: #a78bfa;
+  --cyan: #22d3ee;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(167, 139, 250, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 10% 10%, rgba(34, 211, 238, 0.12), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+main { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+/* ---------- Hero ---------- */
+.hero { text-align: center; padding: 72px 24px 40px; }
+.badge {
+  display: inline-block; font-size: 0.85rem; color: var(--muted);
+  border: 1px solid var(--line); border-radius: 999px; padding: 6px 16px;
+  background: var(--card); backdrop-filter: blur(8px); margin-bottom: 20px;
+}
+h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); font-weight: 800; letter-spacing: -0.02em; }
+.grad {
+  background: linear-gradient(90deg, var(--pink), var(--violet), var(--cyan));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.tagline { max-width: 580px; margin: 18px auto 0; color: var(--muted); font-size: 1.05rem; }
+
+/* ---------- Sections ---------- */
+section { margin: 52px 0; }
+h2 { font-size: 1.5rem; margin-bottom: 8px; }
+.sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 20px; }
+code {
+  background: rgba(255, 255, 255, 0.08); padding: 2px 8px;
+  border-radius: 6px; font-size: 0.9em;
+}
+
+/* ---------- Cards ---------- */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 20px; }
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+  padding: 24px; transition: transform .2s ease, border-color .2s ease;
+}
+.card:hover { transform: translateY(-4px); border-color: rgba(167, 139, 250, 0.5); }
+.card-icon { font-size: 2rem; }
+.card h3 { margin: 10px 0 6px; }
+.card p { color: var(--muted); font-size: 0.92rem; }
+
+/* ---------- Timeline ---------- */
+.timeline { position: relative; padding-left: 28px; margin-top: 8px; }
+.timeline::before {
+  content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px; width: 3px;
+  background: linear-gradient(180deg, var(--pink), var(--violet), var(--cyan));
+  border-radius: 2px; opacity: 0.55;
+}
+.commit { position: relative; padding: 10px 0 14px; animation: fadeIn .4s ease both; }
+.commit .dot {
+  position: absolute; left: -28px; top: 18px; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--bg); border: 3px solid var(--violet);
+}
+.commit:first-child .dot { border-color: var(--cyan); box-shadow: 0 0 12px rgba(34, 211, 238, 0.7); }
+.commit-body {
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px;
+}
+.commit.simulated .commit-body { border-style: dashed; border-color: rgba(244, 114, 182, 0.45); }
+.commit-top { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.hash {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.78rem; color: var(--cyan); background: rgba(34, 211, 238, 0.1);
+  padding: 2px 8px; border-radius: 6px;
+}
+.sim-badge {
+  font-size: 0.7rem; color: var(--pink);
+  border: 1px solid rgba(244, 114, 182, 0.5); padding: 1px 8px; border-radius: 999px;
+}
+.date { margin-left: auto; font-size: 0.78rem; color: var(--muted); }
+.msg { margin-top: 6px; font-size: 0.95rem; }
+.loading { color: var(--muted); }
+
+/* ---------- Button ---------- */
+.btn {
+  margin-top: 20px; cursor: pointer; border: none; border-radius: 12px;
+  padding: 14px 24px; font-size: 1rem; font-weight: 700; color: #0b1020;
+  background: linear-gradient(90deg, var(--pink), var(--violet), var(--cyan));
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 30px rgba(167, 139, 250, 0.35); }
+.btn:active { transform: scale(0.97); }
+.btn-note { font-weight: 500; opacity: 0.75; font-size: 0.85rem; }
+.hint { margin-top: 10px; color: var(--muted); font-size: 0.85rem; }
+
+/* ---------- Files ---------- */
+.files { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.file {
+  display: flex; align-items: center; gap: 14px; background: var(--card);
+  border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px;
+  transition: border-color .2s;
+}
+.file:hover { border-color: rgba(34, 211, 238, 0.5); }
+.file.hidden-file { border-style: dashed; opacity: 0.85; }
+.file-icon { font-size: 1.3rem; }
+.file-name { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-weight: 600; }
+.file-desc { margin-left: auto; color: var(--muted); font-size: 0.85rem; text-align: right; }
+.tag { font-size: 0.68rem; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+.tag-blue   { color: #93c5fd; background: rgba(96, 165, 250, 0.15); }
+.tag-orange { color: #fdba74; background: rgba(249, 115, 22, 0.15); }
+.tag-sky    { color: #7dd3fc; background: rgba(56, 189, 248, 0.15); }
+.tag-yellow { color: #fde047; background: rgba(250, 204, 21, 0.12); }
+.tag-green  { color: #86efac; background: rgba(74, 222, 128, 0.15); }
+.tag-pink   { color: #f9a8d4; background: rgba(244, 114, 182, 0.15); }
+
+/* ---------- Terminal ---------- */
+.terminal {
+  background: #05070f; border: 1px solid var(--line); border-radius: 14px;
+  overflow: hidden; margin-top: 20px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+.term-bar { display: flex; gap: 8px; padding: 12px 16px; background: rgba(255, 255, 255, 0.04); border-bottom: 1px solid var(--line); }
+.term-bar span { width: 12px; height: 12px; border-radius: 50%; }
+.term-bar span:nth-child(1) { background: #ff5f57; }
+.term-bar span:nth-child(2) { background: #febc2e; }
+.term-bar span:nth-child(3) { background: #28c840; }
+.terminal pre { padding: 18px 20px; overflow-x: auto; font-size: 0.88rem; line-height: 1.8; }
+.terminal code { background: transparent; padding: 0; color: #a5f3fc; }
+.terminal .dollar { color: #28c840; }
+
+/* ---------- Burst emoji (feature mula sa branch) ---------- */
+.burst-emoji {
+  position: fixed; pointer-events: none; font-size: 1.4rem; z-index: 99;
+  animation: floatUp 1s ease-out forwards;
+}
+@keyframes floatUp {
+  0%   { transform: translate(0, 0) scale(0.6); opacity: 0; }
+  15%  { opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(1.2) rotate(20deg); opacity: 0; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center; color: var(--muted); font-size: 0.85rem;
+  padding: 40px 24px 56px; border-top: 1px solid var(--line); margin-top: 64px;
+}
+
+@media (max-width: 600px) {
+  .file-desc { display: none; }
+}
