@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🚀 Ang Aking Unang Repo</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="badge">📦 my-first-repo · isang tunay na git repository</div>
+    <h1>🚀 Ang Aking <span class="grad">Unang Repo</span></h1>
+    <p class="tagline">
+      Ang website na ito ay nakatira sa loob ng isang <strong>repo</strong>.
+      Hindi ito basta files — may <strong>kasaysayan</strong> ito ng bawat
+      pagbabagong ginawa ko para sa'yo.
+    </p>
+  </header>
+
+  <main>
+    <!-- Ano ba ang repo -->
+    <section>
+      <h2>❓ Ano ba ang repo?</h2>
+      <p class="sub">Tatlong konsepto lang ang kailangan mong tandaan:</p>
+      <div class="cards">
+        <article class="card">
+          <div class="card-icon">📦</div>
+          <h3>Repo</h3>
+          <p>Parang smart folder na naaalala ang bawat bersyon ng iyong proyekto — time machine para sa files.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">✅</div>
+          <h3>Commit</h3>
+          <p>Bawat "save point". May mensahe ito, petsa, at kung sino ang gumawa. Ito ang bumubuo ng history.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🌿</div>
+          <h3>Branch</h3>
+          <p>Parallel na bersyon ng proyekto. Dito ka nag-e-eksperimento nang hindi nasisira ang main.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Timeline ng kasaysayan -->
+    <section>
+      <h2>📜 Tunay na kasaysayan ng repo na ito</h2>
+      <p class="sub">
+        Ito ang totoong <code>git log</code> — kinukuha nang <strong>live</strong> mula sa
+        nakatagong <code>.git</code> folder ng repo na ito.
+      </p>
+      <div id="timeline" class="timeline">
+        <p class="loading">Nilo-load ang history…</p>
+      </div>
+      <button id="commitBtn" class="btn">➕ Gumawa ng commit <span class="btn-note">(simulasyon lang)</span></button>
+      <p class="hint" id="hint">Wala ka pang ginagawang commit. Subukan mo ang pindutan! 👆</p>
+    </section>
+
+    <!-- Laman ng repo -->
+    <section>
+      <h2>📁 Ano ang laman ng repo na ito?</h2>
+      <p class="sub">Ito ang mga file na nakikita mo — bawat isa ay may papel sa proyekto.</p>
+      <div class="files">
+        <div class="file">
+          <div class="file-icon">📘</div>
+          <span class="file-name">README.md</span>
+          <span class="tag tag-blue">dokumentasyon</span>
+          <span class="file-desc">Ang cover page — una itong binabasa ng mga tao</span>
+        </div>
+        <div class="file">
+          <div class="file-icon">🌐</div>
+          <span class="file-name">index.html</span>
+          <span class="tag tag-orange">website</span>
+          <span class="file-desc">Ang istraktura ng pahinang binabasa mo ngayon</span>
+        </div>
+        <div class="file">
+          <div class="file-icon">🎨</div>
+          <span class="file-name">style.css</span>
+          <span class="tag tag-sky">disenyo</span>
+          <span class="file-desc">Ang mga kulay, layout, at animation</span>
+        </div>
+        <div class="file">
+          <div class="file-icon">⚡</div>
+          <span class="file-name">script.js</span>
+          <span class="tag tag-yellow">logic</span>
+          <span class="file-desc">Ang utak — ginagawang gumagana ang pahina</span>
+        </div>
+        <div class="file">
+          <div class="file-icon">🐍</div>
+          <span class="file-name">server.py</span>
+          <span class="tag tag-green">server</span>
+          <span class="file-desc">Mini server na naghahatid ng site na ito sa browser mo</span>
+        </div>
+        <div class="file hidden-file">
+          <div class="file-icon">🗄️</div>
+          <span class="file-name">.git/</span>
+          <span class="tag tag-pink">nakatago</span>
+          <span class="file-desc">Dito nakatira ang BUONG history ng repo</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Terminal demo -->
+    <section>
+      <h2>🧪 Subukan mo sa totoong buhay</h2>
+      <p class="sub">Kapag may repo ka sa computer mo, ganito mo makikita ang kasaysayan:</p>
+      <div class="terminal">
+        <div class="term-bar"><span></span><span></span><span></span></div>
+        <pre><code><span class="dollar">$</span> git log --oneline
+abc1234 (HEAD -&gt; main) 🎉 Feature: lumilipad na emoji tuwing may commit
+def5678 🖥️ Dinagdag ang mini server: server.py
+a1b2c3d ⚡ Ginawang interactive: script.js
+e4f5a6b 🎨 Pinaganda ang disenyo: style.css
+c7d8e9f 🌱 Unang pahina: index.html
+0123abc 📝 Simula: ginawa ang README (paliwanag ng proyekto)</code></pre>
+      </div>
+      <p class="sub" style="margin-top:14px">
+        <em>(Ito ay halimbawa lang — ang tunay na listahan ay nasa itaas, galing mismo sa .git ng repo na ito.)</em><br>
+        Sa GitHub, ang repo ay naka-store sa cloud at pwedeng i-share sa buong mundo. 🌍
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Gawa nang may 💚 bilang iyong unang hakbang sa mundo ng Git at GitHub.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
