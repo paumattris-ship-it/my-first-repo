@@ -1,0 +1,6 @@
+# Ang .gitignore ay listahan ng mga file na HINDI dapat isama sa repo.
+# Halimbawa: temporary files, cache, o mga sikretong file.
+
+__pycache__/
+*.pyc
+.DS_Store
