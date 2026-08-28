@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ["*.e2b.app"],
+  allowedDevOrigins: ["*"],
   async headers() {
     return [
       {
@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
           {
             key: "Content-Security-Policy",
             value: "frame-ancestors *",
+          },
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "*",
           },
         ],
       },
